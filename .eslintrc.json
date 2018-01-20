@@ -5,7 +5,8 @@
         "browser": true
     },
     "globals": {
-        "Game": false
+        "Game": false,
+        "JsMB": true
     },
     "extends": "eslint:recommended",
     "rules": {

@@ -5,8 +5,25 @@
 
 'use strict';
 
+let prevpos = [-10, -10];
+
+Game.on('mousemove', (x, y) => {
+	const {grid} = Game.world;
+
+	// Game.world.render(); // Overload
+
+	JsMB
+		.setColor('black')
+		.drawRect(...prevpos, grid.size, grid.size)
+		.setColor('green')
+		.drawRect(...grid.round(x, y), grid.size, grid.size)
+		.repaint();
+
+	if (prevpos !== grid.round(x, y)) prevpos = grid.round(x, y);
+});
+
 Game.on('click', (x, y) => {
-	Game.world.world.push(1, x, y);
+	Game.world.world.push(1, ...Game.world.grid.round(x, y));
 	Game.world.render();
 });
 

@@ -12,6 +12,7 @@ class World {
 		this.worldname = name || 'unnamed';
 		this.world = world || [];
 		this.Game = Game;
+		this.grid = new World.Grid(10);
 	}
 
 	save() {
@@ -63,5 +64,7 @@ class World {
 		return new World('empty', []);
 	}
 }
+
+World.Grid = require('./WorldGrid');
 
 module.exports = World;
