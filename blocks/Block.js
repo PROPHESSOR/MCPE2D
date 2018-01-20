@@ -15,9 +15,10 @@ class Block {
 		this.height = height;
 	}
 
-	render(x, y) {
-		setColor(this.color);
-		fillRect(x, y, this.width, this.height);
+	render(JsMB, x, y) {
+		JsMB
+			.setColor(this.color)
+			.fillRect(x, y, this.width, this.height);
 	}
 }
 

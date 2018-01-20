@@ -29,7 +29,7 @@ require('ntk').createClient((err, app) => {
 	JsMB.__init(canvas);
 	JsMB.ctx = ctx;
 	JsMB.$JsMobileBasic.canvas = canvas;
-
-	Game.init(mainWnd, canvas);
+	
+	setTimeout(() => Game.init(mainWnd, canvas, JsMB), 20);
 	mainWnd.map();
 });
