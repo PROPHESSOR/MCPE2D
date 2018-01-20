@@ -16,7 +16,7 @@ class Game extends require('events').EventEmitter {
 		this.initEvents();
 		setImmediate(this.init);
 
-		this.world.save();
+		this.world.load();
 		this.world.render();
 	}
 
@@ -28,10 +28,16 @@ class Game extends require('events').EventEmitter {
 	initEvents() {
 		this.window.on('mousedown', (ev) => {
 			this.emit('mousedown', ev.x, ev.y, ev);
+			if (ev.keycode === 1) {
+				this.emit('click', ev.x, ev.y, ev);
+			} else if (ev.keycode === 2) {
+				this.emit('middleclick', ev.x, ev.y, ev);
+			} else if (ev.keycode === 3) {
+				this.emit('rightclick', ev.x, ev.y, ev);
+			}
 		});
 
 		this.window.on('mousemove', (ev) => {
-			console.log('mousemove');
 			this.emit('mousemove', ev.x, ev.y, ev);
 		});
 	}
@@ -45,7 +51,7 @@ class Game extends require('events').EventEmitter {
 				require(`./modules/${module}`);
 				console.log(`Module ${module} initialized!`);
 			} catch (e) {
-				console.error(`Unable to load module ${module}`,e);
+				console.error(`Unable to load module ${module}`, e);
 			}
 		}
 	}

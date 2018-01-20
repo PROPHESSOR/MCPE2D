@@ -20,7 +20,7 @@ require('ntk').createClient((err, app) => {
 	const mainWnd = app.createWindow({
 		'width': SIZE[0],
 		'height': SIZE[1],
-		'title': 'Hello'
+		'title': 'MCPE2D'
 	});
 	const canvas = new Canvas(...SIZE);
 
@@ -29,7 +29,7 @@ require('ntk').createClient((err, app) => {
 	JsMB.__init(canvas);
 	JsMB.ctx = ctx;
 	JsMB.$JsMobileBasic.canvas = canvas;
-	
+
 	setTimeout(() => Game.init(mainWnd, canvas, JsMB), 20);
 	mainWnd.map();
 });

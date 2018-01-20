@@ -19,7 +19,7 @@ class Renderer {
 
 	renderWorld(world) {
 		this.jsmb.fillScreen('black');
-		debugger;
+
 		for (let i = 0; i < world.length; i += 3) {
 			const blocks = require('./blocks');
 			const block = new (require(`./blocks/${blocks[world[i]]}`))();

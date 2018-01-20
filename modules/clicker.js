@@ -1,7 +1,16 @@
 'use strict';
 
-Game.on('mousedown', (x, y) => {
+Game.on('click', (x, y) => {
 	Game.world.world.push(1, x, y);
+	Game.world.render();
+});
+
+Game.on('rightclick', () => {
+	Game.world.save();
+});
+
+Game.on('middleclick', () => {
+	Game.world.load();
 	Game.world.render();
 });
 
